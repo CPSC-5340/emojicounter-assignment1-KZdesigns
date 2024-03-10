@@ -12,10 +12,15 @@ struct ContentView: View {
     let emojis = ["🌮", "🥪", "🍕", "🥗", "🌭"]
     
     var body: some View {
-        List {
-            ForEach(emojis, id: \.self) { emoji in
-                ListItem(emoji: emoji)
+        NavigationView {
+            List {
+                ForEach(emojis, id: \.self) { emoji in
+                    ListItem(emoji: emoji)
+                }
             }
+            .listStyle(.insetGrouped)
+            .navigationTitle("Emoji Counter")
+            .navigationBarTitleDisplayMode(.automatic)
         }
     }
 }
