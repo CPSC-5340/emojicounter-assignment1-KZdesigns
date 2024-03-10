@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let emojis = ["🌮", "🥪", "🍕", "🥗", "🌭"]
+    
     var body: some View {
         List {
-            ListItem()
+            ForEach(emojis, id: \.self) { emoji in
+                ListItem(emoji: emoji)
+            }
         }
     }
 }
 
 struct ListItem: View {
+    var emoji : String
+    
+    
     func addItem() {
         print("add Item")
     }
@@ -26,7 +34,7 @@ struct ListItem: View {
     
     var body: some View {
         HStack {
-            Text("😎")
+            Text("\(emoji)")
             Text("Counter: 3")
             Spacer()
             Button(action: addItem) {
