@@ -21,32 +21,38 @@ struct ContentView: View {
 }
 
 struct ListItem: View {
-    var emoji : String
-    
+    let emoji : String
+    @State var counter : Int = 0
     
     func addItem() {
         print("add Item")
+        counter += 1
+        print(counter)
     }
     
     func deleteItem() {
         print("delete Item")
+        counter -= 1
+        print(counter)
     }
     
     var body: some View {
         HStack {
             Text("\(emoji)")
-            Text("Counter: 3")
+            Text("Counter: \(counter)")
             Spacer()
             Button(action: addItem) {
                 Image(systemName: "plus.circle")
                     .imageScale(.large)
                     .foregroundColor(.green)
             }
+            .buttonStyle(.borderless)
             Button(action: deleteItem) {
                 Image(systemName: "minus.circle")
                     .imageScale(.large)
                     .foregroundColor(.red)
             }
+            .buttonStyle(.borderless)
         }
         .padding(6)
     }
