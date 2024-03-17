@@ -12,7 +12,7 @@ struct ContentView: View {
     let emojis = ["🌮", "🥪", "🍕", "🥗", "🌭"]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(emojis, id: \.self) { emoji in
                     ListItem(emoji: emoji)
